@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Operator.Master.cs" Inherits="TeknikServis.TeknikOperator.Operator" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - BilgiTAP Teknik Servis</title>
+    <%--  <base href="/"/>--%>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta name="description" content="Web tabanlı teknik servis yönetim yazılımı" />
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <!--  wrapper -->
+        <div id="wrapper">
+            <!-- navbar top -->
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+                <!-- navbar-header -->
+                <div class="navbar-header">
+
+                    <a runat="server" id="brr" class="navbar-brand" href="/TeknikOperator/ServislerCanli">
+                        <%-- <b>BilgiTAP</b>--%>
+                        <img src="/img/logo.png" alt="" />
+                    </a>
+
+                </div>
+
+                <!-- end navbar-header -->
+                <!-- navbar-top-links -->
+
+                <ul class="nav navbar-top-links navbar-right">
+
+                    <li>
+                        <a href="/TeknikOperator/ServislerCanli"><i class="fa fa-cubes ">Şantiye</i></a>
+                    </li>
+                    <%--<li>
+                        <a href="/TeknikOperator/Makineler"><i class="fa fa-cubes">Makine</i></a>
+                    </li>--%>
+                    <li>
+                        <a href="/TeknikOperator/SerbestServis"><i class="fa fa-cubes">Servis</i></a>
+                    </li>
+                    <li runat="server" id="ayar" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <!-- dropdown user-->
+                        <ul class="dropdown-menu dropdown-user ">
+
+                            <li class="divider"></li>
+                            <li><a runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %> !</a></li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Çıkış" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+
+                        </ul>
+                        <!-- end dropdown-user -->
+                    </li>
+                    <!-- end main dropdown -->
+                </ul>
+                <!-- end navbar-top-links -->
+
+            </nav>
+            <!-- end navbar top -->
+
+
+
+            <asp:ScriptManager runat="server" EnablePageMethods="true">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="respond" />
+                    <asp:ScriptReference Name="pace" />
+                    <asp:ScriptReference Name="metis" />
+                    <asp:ScriptReference Name="siminta" />
+                    <asp:ScriptReference Name="moments" />
+                    <asp:ScriptReference Name="momentlocals" />
+                    <asp:ScriptReference Name="datetime" />
+                    <%--    <asp:ScriptReference Name="anten-kaydet" />--%>
+                    <asp:ScriptReference Name="alertify" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+            <div id="page-wrapper">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <!-- end wrapper -->
+
+    </form>
+
+</body>
+</html>

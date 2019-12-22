@@ -1,0 +1,2063 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="radiusModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alim_detays">
+    <Key>
+      <PropertyRef Name="detay_id" />
+    </Key>
+    <Property Name="detay_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alim_id" Type="int" Nullable="false" />
+    <Property Name="cust_id" Type="int" Nullable="false" />
+    <Property Name="cihaz_id" Type="int" />
+    <Property Name="masraf_id" Type="int" />
+    <Property Name="cihaz_adi" Type="varchar" MaxLength="200" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="adet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="satilan_birim" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="alinan_adet" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="alinan_birim" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="kdv" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="yekun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="alims">
+    <Key>
+      <PropertyRef Name="alim_id" />
+    </Key>
+    <Property Name="alim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustID" Type="int" Nullable="false" />
+    <Property Name="konu" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="alim_tarih" Type="datetime" Precision="0" />
+    <Property Name="belge_no" Type="varchar" MaxLength="200" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="toplam_tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_kdv" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_yekun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ayargenels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="adi" Type="varchar" MaxLength="250" />
+    <Property Name="tel" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="web" Type="varchar" MaxLength="100" />
+    <Property Name="adres" Type="varchar" MaxLength="300" />
+    <Property Name="sonfatura" Type="datetime" Precision="0" />
+    <Property Name="lisanstarih" Type="datetime" Precision="0" />
+    <Property Name="fifo" Type="bit" Nullable="false" />
+    <Property Name="cift_taraf" Type="bit" />
+    <Property Name="calismatipi" Type="bit" Nullable="false" />
+    <Property Name="makinesinir" Type="int" Nullable="false" />
+    <Property Name="kullanicisinir" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ayars">
+    <Key>
+      <PropertyRef Name="Ayar_ID" />
+    </Key>
+    <Property Name="Ayar_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mail_Server" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mail_Port" Type="int" Nullable="false" />
+    <Property Name="Mail_UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mail_PW" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mail_Kimden" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="aktif_adres" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="tur" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="gonderen" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bankas">
+    <Key>
+      <PropertyRef Name="banka_id" />
+    </Key>
+    <Property Name="banka_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="banka_adi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="giris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="carihesaps">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" Nullable="false" />
+    <Property Name="ToplamBorc" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ToplamOdenen" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NetBorc" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamAlacak" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamOdedigimiz" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="NetAlacak" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamBakiye" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="son_mesaj" Type="datetime" Precision="0" />
+    <Property Name="telefon" Type="varchar" MaxLength="100" />
+    <Property Name="adi" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="cekhesaps">
+    <Key>
+      <PropertyRef Name="cek_id" />
+    </Key>
+    <Property Name="cek_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="belge_no" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="masraf" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="nettutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="odeme_id" Type="int" Nullable="false" />
+    <Property Name="Musteri_ID" Type="int" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="vade_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tahsilat_tarih" Type="datetime" Precision="0" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="cekildi" Type="bit" Nullable="false" />
+    <Property Name="alinan" Type="bit" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="banka_id" Type="int" />
+    <Property Name="kasa_id" Type="int" />
+    <Property Name="islem" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="cihaz_birims">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cihaz_fifos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cihaz_id" Type="int" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" />
+    <Property Name="giris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="fiyat" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="servisid" Type="int" />
+    <Property Name="hesapid" Type="int" />
+    <Property Name="sinirsiz" Type="bit" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cihaz_garantis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustID" Type="int" />
+    <Property Name="cihaz_id" Type="int" Nullable="false" />
+    <Property Name="baslangic" Type="datetime" Precision="0" />
+    <Property Name="bitis" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="durum" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="satis_tutar" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="iade_tutar" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="servicehesap_id" Type="int" Nullable="false" />
+    <Property Name="adet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cihaz_grups">
+    <Key>
+      <PropertyRef Name="grupid" />
+    </Key>
+    <Property Name="grupid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grupadi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="kdv" Type="decimal" Precision="16" Scale="0" />
+    <Property Name="oiv" Type="decimal" Precision="16" Scale="0" />
+    <Property Name="otv" Type="decimal" Precision="16" Scale="0" />
+  </EntityType>
+  <EntityType Name="cihaz_stoks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cihaz_id" Type="int" Nullable="false" />
+    <Property Name="cihaz_adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="seri_no" Type="varchar" MaxLength="200" />
+    <Property Name="garanti_suresi" Type="int" Nullable="false" />
+    <Property Name="giris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="son_alis_fiyati" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="satis_fiyati" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="tarih" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cihazs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grupid" Type="int" Nullable="false" />
+    <Property Name="barkod" Type="varchar" MaxLength="300" />
+    <Property Name="cihaz_adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="alinan_birim" Type="int" Nullable="false" />
+    <Property Name="satilan_birim" Type="int" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="seri_no" Type="varchar" MaxLength="200" />
+    <Property Name="garanti_suresi" Type="int" Nullable="false" />
+    <Property Name="sinirsiz" Type="bit" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="CustID" />
+    </Key>
+    <Property Name="CustID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="unvan" Type="varchar" MaxLength="250" />
+    <Property Name="TC" Type="varchar" MaxLength="100" />
+    <Property Name="vd" Type="varchar" MaxLength="20" />
+    <Property Name="Adres" Type="varchar" MaxLength="500" />
+    <Property Name="telefon" Type="varchar" MaxLength="200" />
+    <Property Name="telefon_cep" Type="varchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="tanimlayici" Type="varchar" MaxLength="500" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Lat" Type="varchar" MaxLength="100" />
+    <Property Name="Long" Type="varchar" MaxLength="100" />
+    <Property Name="pasif" Type="bit" />
+    <Property Name="istihbarat" Type="varchar" MaxLength="500" />
+    <Property Name="prim_yekun" Type="decimal" Precision="16" Scale="0" />
+    <Property Name="prim_kar" Type="decimal" Precision="16" Scale="0" />
+    <Property Name="musteri" Type="bit" />
+    <Property Name="tedarikci" Type="bit" />
+    <Property Name="usta" Type="bit" />
+    <Property Name="disservis" Type="bit" />
+    <Property Name="paket_id" Type="int" />
+    <Property Name="antenid" Type="int" />
+    <Property Name="expire" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="faturas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriID" Type="int" />
+    <Property Name="no" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="taksit_no" Type="int" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="sattis_tarih" Type="datetime" Precision="0" />
+    <Property Name="tc" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="200" />
+    <Property Name="adres" Type="varchar" MaxLength="200" />
+    <Property Name="tutar" Type="decimal" Precision="25" Scale="2" Nullable="false" />
+    <Property Name="tamirci_maliyet" Type="decimal" Precision="16" Scale="0" />
+    <Property Name="telefon" Type="varchar" MaxLength="25" />
+    <Property Name="odenen" Type="decimal" Precision="26" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="26" Scale="2" Nullable="false" />
+    <Property Name="vergisiz_tutar" Type="decimal" Precision="26" Scale="2" Nullable="false" />
+    <Property Name="KDV" Type="decimal" Precision="26" Scale="2" Nullable="false" />
+    <Property Name="OIV" Type="decimal" Precision="26" Scale="2" Nullable="false" />
+    <Property Name="fat_seri" Type="varchar" MaxLength="10" />
+    <Property Name="fat_no" Type="int" />
+    <Property Name="basim_tarih" Type="datetime" Precision="0" />
+    <Property Name="odendi" Type="bit" />
+    <Property Name="tur" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="tahsilat_turu" Type="varchar" MaxLength="10" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="hesap_id" Type="int" />
+    <Property Name="service_id" Type="int" />
+    <Property Name="tahsilat_aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="taksit_sayisi" Type="int" />
+    <Property Name="belge_no" Type="varchar" MaxLength="200" />
+    <Property Name="vade_tarih" Type="datetime" Precision="0" />
+    <Property Name="masraf" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="borc_odeme_id" Type="int" />
+    <Property Name="mahsup" Type="bit" />
+    <Property Name="mahsup_key" Type="varchar" MaxLength="100" />
+    <Property Name="iade_id" Type="int" />
+    <Property Name="servicehesap_id" Type="int" />
+    <Property Name="son_odeme_tarihi" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="odeme_tarihi" Type="datetime" Precision="0" />
+    <Property Name="islem_tarihi" Type="datetime" Precision="0" />
+    <Property Name="guncelleme_tarihi" Type="datetime" Precision="0" />
+    <Property Name="islemci_user" Type="varchar" MaxLength="100" />
+    <Property Name="satis_id" Type="int" />
+    <Property Name="tamirci_id" Type="int" />
+    <Property Name="paket_id" Type="int" />
+  </EntityType>
+  <EntityType Name="kart_caris">
+    <Key>
+      <PropertyRef Name="kart_id" />
+    </Key>
+    <Property Name="kart_id" Type="int" Nullable="false" />
+    <Property Name="borc" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="odenen" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="kart_adi" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kart_hesaps">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kart_id" Type="int" Nullable="false" />
+    <Property Name="odeme_id" Type="int" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" />
+    <Property Name="extre_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="toplam_tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cekildi" Type="bit" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="islem" Type="varchar" MaxLength="200" />
+    <Property Name="Musteri_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="kart_odemes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kart_id" Type="int" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="46" Scale="2" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="iptal" Type="bit" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="kart_tanims">
+    <Key>
+      <PropertyRef Name="kart_id" />
+    </Key>
+    <Property Name="kart_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kart_adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="extre_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="devreden_bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kasaharekets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="giris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="Odeme_ID" Type="int" />
+    <Property Name="aktif_bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="KasaTur" Type="varchar" MaxLength="10" />
+    <Property Name="islem" Type="varchar" MaxLength="200" />
+    <Property Name="tarih" Type="datetime" Precision="0" />
+    <Property Name="Musteri_ID" Type="int" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="kasahesaps">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ToplamGiris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamCikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamBakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="KasaTur" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="kasa_adi" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kiralama_tarifes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="tarife_kodu" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="calisma_tipi" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="saatlik" Type="bit" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_caris">
+    <Key>
+      <PropertyRef Name="makine_id" />
+    </Key>
+    <Property Name="makine_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="plaka" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="son_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="tarife_saat" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarife_gun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarife_hafta" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarife_ay" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_calisma_saat" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_calisma_gun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_calisma_hafta" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_calisma_ay" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_masraf_teorik" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_masraf_gercek" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_gelir" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="servis_sayaci" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="toplam_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="toplam_dakika" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_kullanicis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="atama" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="cikarma" Type="datetime" Precision="0" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_masraf_girislers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="masraf_id" Type="int" Nullable="false" />
+    <Property Name="miktar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="belge_no" Type="varchar" MaxLength="200" />
+    <Property Name="sifirla" Type="bit" Nullable="false" />
+    <Property Name="operator" Type="varchar" MaxLength="200" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_masraf_hesaps2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serviceid" Type="int" Nullable="false" />
+    <Property Name="hesap_id" Type="int" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="masraf_id" Type="int" Nullable="false" />
+    <Property Name="dakika" Type="int" Nullable="false" />
+    <Property Name="son_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="calisma_saati" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarifekodu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="miktar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="gelir" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_masraf_tanims2">
+    <Key>
+      <PropertyRef Name="tanim_id" />
+    </Key>
+    <Property Name="tanim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="masraf_id" Type="int" Nullable="false" />
+    <Property Name="tarifeid" Type="int" Nullable="false" />
+    <Property Name="masraf_saat" Type="decimal" Precision="16" Scale="10" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="aciklama" Type="varchar" MaxLength="300" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_masrafs">
+    <Key>
+      <PropertyRef Name="MasrafID" />
+    </Key>
+    <Property Name="MasrafID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="300" />
+    <Property Name="giris" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="cikis" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="bakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim_maliyet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="birim_id" Type="int" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makine_servis_sayacs">
+    <Key>
+      <PropertyRef Name="sayac_id" />
+    </Key>
+    <Property Name="sayac_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="masraf_id" Type="int" Nullable="false" />
+    <Property Name="sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="sayac_tanim" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="alarm_sayac" Type="decimal" Precision="16" Scale="1" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="manuels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unvan" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="kdv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="otv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="oiv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="yekun" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="masraf_tips">
+    <Key>
+      <PropertyRef Name="tip_id" />
+    </Key>
+    <Property Name="tip_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tip_adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="300" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="css" Type="varchar" MaxLength="10" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="musteriodemelers">
+    <Key>
+      <PropertyRef Name="Odeme_ID" />
+    </Key>
+    <Property Name="KullaniciID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="no" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="OdemeMiktar" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="OdemeTarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Odeme_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Musteri_ID" Type="int" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="taksit_no" Type="int" Nullable="false" />
+    <Property Name="tahsilat_turu" Type="varchar" MaxLength="10" />
+    <Property Name="tahsilat_odeme" Type="varchar" MaxLength="10" />
+    <Property Name="pos_id" Type="int" />
+    <Property Name="kart_id" Type="int" />
+    <Property Name="taksit_sayisi" Type="int" />
+    <Property Name="banka_id" Type="int" />
+    <Property Name="belge_no" Type="varchar" MaxLength="200" />
+    <Property Name="vade_tarih" Type="datetime" Precision="0" />
+    <Property Name="masraf" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="fatura_id" Type="int" />
+    <Property Name="extre_tarih" Type="datetime" Precision="0" />
+    <Property Name="mahsup" Type="bit" />
+    <Property Name="mahsup_key" Type="varchar" MaxLength="100" />
+    <Property Name="iade_id" Type="int" />
+    <Property Name="standart" Type="bit" />
+    <Property Name="masraf_tipi" Type="varchar" MaxLength="200" />
+    <Property Name="masraf_id" Type="int" />
+    <Property Name="islem_tarihi" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="nots">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="not_adi" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="notlar" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="panels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servis_sayisi" Type="int" Nullable="false" />
+    <Property Name="onay_bekleyen_sayisi" Type="int" Nullable="false" />
+    <Property Name="borclu_sayisi" Type="int" Nullable="false" />
+    <Property Name="emanet_sayisi" Type="int" Nullable="false" />
+    <Property Name="ToplamBorc" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamOdenen" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="NetBorc" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamAlacak" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamOdedigimiz" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="NetAlacak" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ToplamBakiye" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="musteri_sayisi" Type="int" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pos_tanims">
+    <Key>
+      <PropertyRef Name="pos_id" />
+    </Key>
+    <Property Name="pos_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pos_adi" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="banka_id" Type="int" Nullable="false" />
+    <Property Name="ikinci_sure" Type="int" Nullable="false" />
+    <Property Name="ikinci_komisyon" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="poshesaps">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pos_id" Type="int" Nullable="false" />
+    <Property Name="tahsilat_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tahsilat_tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="komsiyon_oran" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="komisyon_tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="net_tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="extre_tarihi" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="cekildi" Type="bit" Nullable="false" />
+    <Property Name="tahsilat_id" Type="int" Nullable="false" />
+    <Property Name="iptal" Type="bit" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="islem" Type="varchar" MaxLength="200" />
+    <Property Name="Musteri_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="satislars">
+    <Key>
+      <PropertyRef Name="satis_id" />
+    </Key>
+    <Property Name="satis_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="musteri_id" Type="int" Nullable="false" />
+    <Property Name="odeme_id" Type="int" />
+    <Property Name="cihaz_id" Type="int" Nullable="false" />
+    <Property Name="adet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="vergi" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="kdv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="otv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="oiv" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="bandrol" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="iskonto_oran" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="yekun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="stok_id" Type="int" />
+    <Property Name="Firma" Type="varchar" MaxLength="20" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="fat_no" Type="int" />
+    <Property Name="fat_seri" Type="char" MaxLength="10" />
+    <Property Name="basim_tarih" Type="datetime" Precision="0" />
+    <Property Name="unvan" Type="varchar" MaxLength="300" />
+    <Property Name="tc" Type="varchar" MaxLength="150" />
+    <Property Name="vd" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="service_faturas">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="usta_id" Type="int" />
+    <Property Name="Tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="KDV" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Yekun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_maliyet" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="toplam_fark" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="fat_seri" Type="varchar" MaxLength="10" />
+    <Property Name="fat_no" Type="int" />
+    <Property Name="basim_tarih" Type="datetime" Precision="0" />
+    <Property Name="service_tur" Type="varchar" MaxLength="50" />
+    <Property Name="tahsilat_turu" Type="varchar" MaxLength="10" />
+    <Property Name="kapanma" Type="bit" />
+    <Property Name="Firma" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iptal" Type="bit" />
+  </EntityType>
+  <EntityType Name="service_maliyets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servisid" Type="int" Nullable="false" />
+    <Property Name="hesapid" Type="int" Nullable="false" />
+    <Property Name="tutar" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="service_tips">
+    <Key>
+      <PropertyRef Name="tip_id" />
+    </Key>
+    <Property Name="tip_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tip_ad" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="aciklama" Type="varchar" MaxLength="200" />
+    <Property Name="css" Type="varchar" MaxLength="100" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="iptal" Type="bit" />
+  </EntityType>
+  <EntityType Name="servicedetays">
+    <Key>
+      <PropertyRef Name="DetayID" />
+    </Key>
+    <Property Name="DetayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="TarihZaman" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="BelgeYol" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="KullaniciID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="iptal" Type="bit" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Baslik" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="servicehesap_ops">
+    <Key>
+      <PropertyRef Name="HesapID" />
+    </Key>
+    <Property Name="HesapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" />
+    <Property Name="tarife_kodu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tarife_tipi" Type="varchar" MaxLength="20" />
+    <Property Name="tarifeid" Type="int" />
+    <Property Name="baslangic" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="bitis" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="calisma_saati" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="yeni_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="toplam_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="dakika" Type="int" Nullable="false" />
+    <Property Name="sure_aciklama" Type="varchar" MaxLength="150" />
+    <Property Name="baslangic_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="bitis_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="servis_kimlik" Type="varchar" MaxLength="10" />
+    <Property Name="IslemParca" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="birim_fiyat" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Tutar" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="KDV" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Yekun" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="TarihZaman" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="adet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="cihaz_id" Type="int" />
+    <Property Name="sinirsiz" Type="bit" />
+    <Property Name="cihaz_adi" Type="varchar" MaxLength="200" />
+    <Property Name="cihaz_gsure" Type="int" />
+    <Property Name="Urun_Cinsi" Type="varchar" MaxLength="200" />
+    <Property Name="Urun_GarantiBaslangic" Type="datetime" Precision="0" />
+    <Property Name="Urun_GarantiBitis" Type="datetime" Precision="0" />
+    <Property Name="Urun_GarantiSuresi" Type="int" />
+    <Property Name="Urun_Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="Urun_Kimlik" Type="varchar" MaxLength="10" />
+    <Property Name="onay" Type="bit" Nullable="false" />
+    <Property Name="Onay_tarih" Type="datetime" Precision="0" />
+    <Property Name="stok_id" Type="int" />
+    <Property Name="birim_maliyet" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="toplam_maliyet" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="servicehesaps">
+    <Key>
+      <PropertyRef Name="HesapID" />
+    </Key>
+    <Property Name="HesapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriID" Type="int" />
+    <Property Name="makine_id" Type="int" />
+    <Property Name="tarife_kodu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tarife_tipi" Type="varchar" MaxLength="20" />
+    <Property Name="tarifeid" Type="int" />
+    <Property Name="baslangic" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="bitis" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="calisma_saati" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="yeni_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="toplam_sayac" Type="decimal" Precision="16" Scale="1" Nullable="false" />
+    <Property Name="dakika" Type="int" Nullable="false" />
+    <Property Name="sure_aciklama" Type="varchar" MaxLength="150" />
+    <Property Name="baslangic_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="bitis_tarih" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tamirci_id" Type="int" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="servis_kimlik" Type="varchar" MaxLength="10" />
+    <Property Name="IslemParca" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="birim_fiyat" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Tutar" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="KDV" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Yekun" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="TarihZaman" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="adet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="birim" Type="varchar" MaxLength="50" />
+    <Property Name="cihaz_id" Type="int" />
+    <Property Name="sinirsiz" Type="bit" />
+    <Property Name="cihaz_adi" Type="varchar" MaxLength="200" />
+    <Property Name="cihaz_gsure" Type="int" />
+    <Property Name="Urun_Cinsi" Type="varchar" MaxLength="200" />
+    <Property Name="Urun_GarantiBaslangic" Type="datetime" Precision="0" />
+    <Property Name="Urun_GarantiBitis" Type="datetime" Precision="0" />
+    <Property Name="Urun_GarantiSuresi" Type="int" />
+    <Property Name="Urun_Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="Urun_Kimlik" Type="varchar" MaxLength="10" />
+    <Property Name="onay" Type="bit" Nullable="false" />
+    <Property Name="Onay_tarih" Type="datetime" Precision="0" />
+    <Property Name="stok_id" Type="int" />
+    <Property Name="birim_maliyet" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="toplam_maliyet" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="servicemakines">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="makine_id" Type="int" Nullable="false" />
+    <Property Name="serviceid" Type="int" Nullable="false" />
+    <Property Name="calisma_saati" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="toplam_sayac" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="toplam_dakika" Type="int" Nullable="false" />
+    <Property Name="tarife_kodu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="yekun" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="maliyet" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="services">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustID" Type="int" />
+    <Property Name="usta_id" Type="int" />
+    <Property Name="usta" Type="varchar" MaxLength="200" />
+    <Property Name="tamirci_id" Type="int" />
+    <Property Name="son_dis_servis" Type="varchar" MaxLength="200" />
+    <Property Name="SonAtananID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="AcilmaZamani" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="KapanmaZamani" Type="datetime" Precision="0" />
+    <Property Name="UrunID" Type="int" />
+    <Property Name="Servis_Kimlik_No" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="barcode" Type="varchar" MaxLength="150" />
+    <Property Name="tip_id" Type="int" Nullable="false" />
+    <Property Name="iptal" Type="bit" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+    <Property Name="olusturan_Kullanici" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="Baslik" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="servis_kullanicis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servis_id" Type="int" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="atama" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="cikarma" Type="datetime" Precision="0" />
+    <Property Name="iptal" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="yedek_uruns">
+    <Key>
+      <PropertyRef Name="yedek_id" />
+    </Key>
+    <Property Name="yedek_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="musteri_id" Type="int" Nullable="false" />
+    <Property Name="urun_aciklama" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="tarih_verilme" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tarih_donus" Type="datetime" Precision="0" />
+    <Property Name="Firma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="kullanici" Type="varchar" MaxLength="100" />
+    <Property Name="inserted" Type="varchar" MaxLength="20" />
+    <Property Name="updated" Type="varchar" MaxLength="20" />
+    <Property Name="deleted" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="alim_detays_ibfk_1">
+    <End Role="alims" Type="Self.alims" Multiplicity="1" />
+    <End Role="alim_detays" Type="Self.alim_detays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alims">
+        <PropertyRef Name="alim_id" />
+      </Principal>
+      <Dependent Role="alim_detays">
+        <PropertyRef Name="alim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="alim_detays_ibfk_2">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="0..1" />
+    <End Role="alim_detays" Type="Self.alim_detays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="alim_detays">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="alim_detays_ibfk_3">
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="0..1" />
+    <End Role="alim_detays" Type="Self.alim_detays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_masrafs">
+        <PropertyRef Name="MasrafID" />
+      </Principal>
+      <Dependent Role="alim_detays">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="alims_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="alims" Type="Self.alims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="alims">
+        <PropertyRef Name="CustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cari_tanim_kartR">
+    <End Role="kart_tanims" Type="Self.kart_tanims" Multiplicity="1" />
+    <End Role="kart_caris" Type="Self.kart_caris" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="kart_tanims">
+        <PropertyRef Name="kart_id" />
+      </Principal>
+      <Dependent Role="kart_caris">
+        <PropertyRef Name="kart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cekhesaps_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="cekhesaps" Type="Self.cekhesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="cekhesaps">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cekhesaps_ibfk_2">
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="1" />
+    <End Role="cekhesaps" Type="Self.cekhesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteriodemelers">
+        <PropertyRef Name="Odeme_ID" />
+      </Principal>
+      <Dependent Role="cekhesaps">
+        <PropertyRef Name="odeme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihaz_fifos_ibfk_1">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="1" />
+    <End Role="cihaz_fifos" Type="Self.cihaz_fifos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="cihaz_fifos">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihaz_garanti_kisit">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="1" />
+    <End Role="cihaz_garantis" Type="Self.cihaz_garantis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="cihaz_garantis">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihaz_grup_f">
+    <End Role="cihaz_grups" Type="Self.cihaz_grups" Multiplicity="1" />
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihaz_grups">
+        <PropertyRef Name="grupid" />
+      </Principal>
+      <Dependent Role="cihazs">
+        <PropertyRef Name="grupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihaz_id">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="1" />
+    <End Role="satislars" Type="Self.satislars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="satislars">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihazIadeKisit">
+    <End Role="cihaz_garantis" Type="Self.cihaz_garantis" Multiplicity="0..1" />
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihaz_garantis">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="iade_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihazs_ibfk_1">
+    <End Role="cihaz_birims" Type="Self.cihaz_birims" Multiplicity="1" />
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihaz_birims">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cihazs">
+        <PropertyRef Name="alinan_birim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cihazs_ibfk_2">
+    <End Role="cihaz_birims" Type="Self.cihaz_birims" Multiplicity="1" />
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihaz_birims">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cihazs">
+        <PropertyRef Name="satilan_birim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fatura_custome_kst">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="faturas" Type="Self.faturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="faturas">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="faturas_ibfk_1">
+    <End Role="satislars" Type="Self.satislars" Multiplicity="0..1" />
+    <End Role="faturas" Type="Self.faturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="satislars">
+        <PropertyRef Name="satis_id" />
+      </Principal>
+      <Dependent Role="faturas">
+        <PropertyRef Name="satis_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="garanti_custom_Kisit">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="cihaz_garantis" Type="Self.cihaz_garantis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="cihaz_garantis">
+        <PropertyRef Name="CustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="karar_fatura_kisit2">
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="0..1" />
+    <End Role="faturas" Type="Self.faturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicehesaps">
+        <PropertyRef Name="HesapID" />
+      </Principal>
+      <Dependent Role="faturas">
+        <PropertyRef Name="servicehesap_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kart_hesaps_ibfk_1">
+    <End Role="kart_tanims" Type="Self.kart_tanims" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="kart_hesaps" Type="Self.kart_hesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kart_tanims">
+        <PropertyRef Name="kart_id" />
+      </Principal>
+      <Dependent Role="kart_hesaps">
+        <PropertyRef Name="kart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kart_hesaps_ibfk_2">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="kart_hesaps" Type="Self.kart_hesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="kart_hesaps">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kart_hesaps_ibfk_3">
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="1" />
+    <End Role="kart_hesaps" Type="Self.kart_hesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteriodemelers">
+        <PropertyRef Name="Odeme_ID" />
+      </Principal>
+      <Dependent Role="kart_hesaps">
+        <PropertyRef Name="odeme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kartTanimOdemeF1">
+    <End Role="kart_tanims" Type="Self.kart_tanims" Multiplicity="1" />
+    <End Role="kart_odemes" Type="Self.kart_odemes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kart_tanims">
+        <PropertyRef Name="kart_id" />
+      </Principal>
+      <Dependent Role="kart_odemes">
+        <PropertyRef Name="kart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kasaharekets_ibfk_1">
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="0..1" />
+    <End Role="kasaharekets" Type="Self.kasaharekets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteriodemelers">
+        <PropertyRef Name="Odeme_ID" />
+      </Principal>
+      <Dependent Role="kasaharekets">
+        <PropertyRef Name="Odeme_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kasaharekets_ibfk_2">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="kasaharekets" Type="Self.kasaharekets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="kasaharekets">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kiralama_tarifes_ibfk_1">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="kiralama_tarifes" Type="Self.kiralama_tarifes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="kiralama_tarifes">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_kullanicis_ibfk_1">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="makine_kullanicis" Type="Self.makine_kullanicis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="makine_kullanicis">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_hesaps2_ibfk_1">
+    <End Role="services" Type="Self.services" Multiplicity="1" />
+    <End Role="makine_masraf_hesaps2" Type="Self.makine_masraf_hesaps2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="makine_masraf_hesaps2">
+        <PropertyRef Name="serviceid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_hesaps2_ibfk_2">
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="1" />
+    <End Role="makine_masraf_hesaps2" Type="Self.makine_masraf_hesaps2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicehesaps">
+        <PropertyRef Name="HesapID" />
+      </Principal>
+      <Dependent Role="makine_masraf_hesaps2">
+        <PropertyRef Name="hesap_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_hesaps2_ibfk_3">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="makine_masraf_hesaps2" Type="Self.makine_masraf_hesaps2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="makine_masraf_hesaps2">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_hesaps2_ibfk_4">
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="1" />
+    <End Role="makine_masraf_hesaps2" Type="Self.makine_masraf_hesaps2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_masrafs">
+        <PropertyRef Name="MasrafID" />
+      </Principal>
+      <Dependent Role="makine_masraf_hesaps2">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_tanims2_ibfk_1">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="makine_masraf_tanims2" Type="Self.makine_masraf_tanims2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="makine_masraf_tanims2">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_tanims2_ibfk_2">
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="1" />
+    <End Role="makine_masraf_tanims2" Type="Self.makine_masraf_tanims2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_masrafs">
+        <PropertyRef Name="MasrafID" />
+      </Principal>
+      <Dependent Role="makine_masraf_tanims2">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masraf_tanims2_ibfk_3">
+    <End Role="kiralama_tarifes" Type="Self.kiralama_tarifes" Multiplicity="1" />
+    <End Role="makine_masraf_tanims2" Type="Self.makine_masraf_tanims2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kiralama_tarifes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="makine_masraf_tanims2">
+        <PropertyRef Name="tarifeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_masrafs_ibfk_1">
+    <End Role="cihaz_birims" Type="Self.cihaz_birims" Multiplicity="1" />
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihaz_birims">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="makine_masrafs">
+        <PropertyRef Name="birim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makine_service_kisit">
+    <End Role="services" Type="Self.services" Multiplicity="1" />
+    <End Role="servicemakines" Type="Self.servicemakines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="servicemakines">
+        <PropertyRef Name="serviceid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="makineservice_kisit">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="servicemakines" Type="Self.servicemakines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="servicemakines">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="masraf_kisit_1">
+    <End Role="masraf_tips" Type="Self.masraf_tips" Multiplicity="0..1" />
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="masraf_tips">
+        <PropertyRef Name="tip_id" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mmt_m_kisit11">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="makine_servis_sayacs" Type="Self.makine_servis_sayacs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="makine_servis_sayacs">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mmt_m_kisit12">
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="1" />
+    <End Role="makine_servis_sayacs" Type="Self.makine_servis_sayacs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_masrafs">
+        <PropertyRef Name="MasrafID" />
+      </Principal>
+      <Dependent Role="makine_servis_sayacs">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mmt_m_kisit66">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="1" />
+    <End Role="makine_masraf_girislers" Type="Self.makine_masraf_girislers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="makine_masraf_girislers">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mmt_m_kisit669">
+    <End Role="makine_masrafs" Type="Self.makine_masrafs" Multiplicity="1" />
+    <End Role="makine_masraf_girislers" Type="Self.makine_masraf_girislers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_masrafs">
+        <PropertyRef Name="MasrafID" />
+      </Principal>
+      <Dependent Role="makine_masraf_girislers">
+        <PropertyRef Name="masraf_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="musteri_id">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="satislars" Type="Self.satislars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="satislars">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="musteriodemelers_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="musteriodemelers_ibfk_2">
+    <End Role="pos_tanims" Type="Self.pos_tanims" Multiplicity="0..1" />
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pos_tanims">
+        <PropertyRef Name="pos_id" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="pos_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="musteriodemelers_ibfk_3">
+    <End Role="kart_tanims" Type="Self.kart_tanims" Multiplicity="0..1" />
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kart_tanims">
+        <PropertyRef Name="kart_id" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="kart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="musteriodemelers_ibfk_4">
+    <End Role="bankas" Type="Self.bankas" Multiplicity="0..1" />
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bankas">
+        <PropertyRef Name="banka_id" />
+      </Principal>
+      <Dependent Role="musteriodemelers">
+        <PropertyRef Name="banka_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="odeme_id">
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="0..1" />
+    <End Role="satislars" Type="Self.satislars" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteriodemelers">
+        <PropertyRef Name="Odeme_ID" />
+      </Principal>
+      <Dependent Role="satislars">
+        <PropertyRef Name="odeme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pos_tanims_ibfk_1">
+    <End Role="bankas" Type="Self.bankas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="pos_tanims" Type="Self.pos_tanims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bankas">
+        <PropertyRef Name="banka_id" />
+      </Principal>
+      <Dependent Role="pos_tanims">
+        <PropertyRef Name="banka_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="poshesaps_ibfk_2">
+    <End Role="pos_tanims" Type="Self.pos_tanims" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="poshesaps" Type="Self.poshesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pos_tanims">
+        <PropertyRef Name="pos_id" />
+      </Principal>
+      <Dependent Role="poshesaps">
+        <PropertyRef Name="pos_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="poshesaps_ibfk_3">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="poshesaps" Type="Self.poshesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="poshesaps">
+        <PropertyRef Name="Musteri_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="poshesaps_ibfk_4">
+    <End Role="musteriodemelers" Type="Self.musteriodemelers" Multiplicity="1" />
+    <End Role="poshesaps" Type="Self.poshesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="musteriodemelers">
+        <PropertyRef Name="Odeme_ID" />
+      </Principal>
+      <Dependent Role="poshesaps">
+        <PropertyRef Name="tahsilat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="service_faturas_ibfk_1">
+    <End Role="services" Type="Self.services" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="service_faturas" Type="Self.service_faturas" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="service_faturas">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="service_faturas_ibfk_2">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="service_faturas" Type="Self.service_faturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="service_faturas">
+        <PropertyRef Name="usta_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="service_maliyets_ibfk_1">
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="1" />
+    <End Role="service_maliyets" Type="Self.service_maliyets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicehesaps">
+        <PropertyRef Name="HesapID" />
+      </Principal>
+      <Dependent Role="service_maliyets">
+        <PropertyRef Name="hesapid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicedetays_ibfk_1">
+    <End Role="services" Type="Self.services" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="servicedetays" Type="Self.servicedetays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="servicedetays">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_2">
+    <End Role="services" Type="Self.services" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_3">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="0..1" />
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_4">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="tamirci_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_44">
+    <End Role="makine_caris" Type="Self.makine_caris" Multiplicity="0..1" />
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="makine_caris">
+        <PropertyRef Name="makine_id" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="makine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servicehesaps_ibfk_45">
+    <End Role="kiralama_tarifes" Type="Self.kiralama_tarifes" Multiplicity="0..1" />
+    <End Role="servicehesaps" Type="Self.servicehesaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kiralama_tarifes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="servicehesaps">
+        <PropertyRef Name="tarifeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="services_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="CustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="services_ibfk_4">
+    <End Role="service_tips" Type="Self.service_tips" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_tips">
+        <PropertyRef Name="tip_id" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="tip_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="services_ibfk_6">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="services" Type="Self.services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="services">
+        <PropertyRef Name="usta_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servis_kullanicis_ibfk_1">
+    <End Role="services" Type="Self.services" Multiplicity="1" />
+    <End Role="servis_kullanicis" Type="Self.servis_kullanicis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="servis_kullanicis">
+        <PropertyRef Name="servis_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="stokKisit1">
+    <End Role="cihazs" Type="Self.cihazs" Multiplicity="1" />
+    <End Role="cihaz_stoks" Type="Self.cihaz_stoks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cihazs">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="cihaz_stoks">
+        <PropertyRef Name="cihaz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tamirci_kisit">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="faturas" Type="Self.faturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="faturas">
+        <PropertyRef Name="tamirci_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="yedek_uruns_ibfk_1">
+    <End Role="customers" Type="Self.customers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="yedek_uruns" Type="Self.yedek_uruns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="CustID" />
+      </Principal>
+      <Dependent Role="yedek_uruns">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="radiusModelStoreContainer">
+    <EntitySet Name="alim_detays" EntityType="Self.alim_detays" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="alims" EntityType="Self.alims" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="ayargenels" EntityType="Self.ayargenels" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="ayars" EntityType="Self.ayars" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="bankas" EntityType="Self.bankas" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="carihesaps" EntityType="Self.carihesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cekhesaps" EntityType="Self.cekhesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihaz_birims" EntityType="Self.cihaz_birims" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihaz_fifos" EntityType="Self.cihaz_fifos" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihaz_garantis" EntityType="Self.cihaz_garantis" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihaz_grups" EntityType="Self.cihaz_grups" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihaz_stoks" EntityType="Self.cihaz_stoks" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="cihazs" EntityType="Self.cihazs" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="customers" EntityType="Self.customers" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="faturas" EntityType="Self.faturas" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kart_caris" EntityType="Self.kart_caris" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kart_hesaps" EntityType="Self.kart_hesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kart_odemes" EntityType="Self.kart_odemes" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kart_tanims" EntityType="Self.kart_tanims" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kasaharekets" EntityType="Self.kasaharekets" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kasahesaps" EntityType="Self.kasahesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="kiralama_tarifes" EntityType="Self.kiralama_tarifes" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_caris" EntityType="Self.makine_caris" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_kullanicis" EntityType="Self.makine_kullanicis" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_masraf_girislers" EntityType="Self.makine_masraf_girislers" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_masraf_hesaps2" EntityType="Self.makine_masraf_hesaps2" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_masraf_tanims2" EntityType="Self.makine_masraf_tanims2" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_masrafs" EntityType="Self.makine_masrafs" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="makine_servis_sayacs" EntityType="Self.makine_servis_sayacs" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="manuels" EntityType="Self.manuels" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="masraf_tips" EntityType="Self.masraf_tips" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="musteriodemelers" EntityType="Self.musteriodemelers" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="nots" EntityType="Self.nots" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="panels" EntityType="Self.panels" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="pos_tanims" EntityType="Self.pos_tanims" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="poshesaps" EntityType="Self.poshesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="satislars" EntityType="Self.satislars" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="service_faturas" EntityType="Self.service_faturas" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="service_maliyets" EntityType="Self.service_maliyets" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="service_tips" EntityType="Self.service_tips" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="servicedetays" EntityType="Self.servicedetays" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="servicehesap_ops" EntityType="Self.servicehesap_ops" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="servicehesaps" EntityType="Self.servicehesaps" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="servicemakines" EntityType="Self.servicemakines" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="services" EntityType="Self.services" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="servis_kullanicis" EntityType="Self.servis_kullanicis" Schema="hafriyatap" store:Type="Tables" />
+    <EntitySet Name="yedek_uruns" EntityType="Self.yedek_uruns" Schema="hafriyatap" store:Type="Tables" />
+    <AssociationSet Name="alim_detays_ibfk_1" Association="Self.alim_detays_ibfk_1">
+      <End Role="alims" EntitySet="alims" />
+      <End Role="alim_detays" EntitySet="alim_detays" />
+    </AssociationSet>
+    <AssociationSet Name="alim_detays_ibfk_2" Association="Self.alim_detays_ibfk_2">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="alim_detays" EntitySet="alim_detays" />
+    </AssociationSet>
+    <AssociationSet Name="alim_detays_ibfk_3" Association="Self.alim_detays_ibfk_3">
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+      <End Role="alim_detays" EntitySet="alim_detays" />
+    </AssociationSet>
+    <AssociationSet Name="alims_ibfk_1" Association="Self.alims_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="alims" EntitySet="alims" />
+    </AssociationSet>
+    <AssociationSet Name="cari_tanim_kartR" Association="Self.cari_tanim_kartR">
+      <End Role="kart_tanims" EntitySet="kart_tanims" />
+      <End Role="kart_caris" EntitySet="kart_caris" />
+    </AssociationSet>
+    <AssociationSet Name="cekhesaps_ibfk_1" Association="Self.cekhesaps_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="cekhesaps" EntitySet="cekhesaps" />
+    </AssociationSet>
+    <AssociationSet Name="cekhesaps_ibfk_2" Association="Self.cekhesaps_ibfk_2">
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+      <End Role="cekhesaps" EntitySet="cekhesaps" />
+    </AssociationSet>
+    <AssociationSet Name="cihaz_fifos_ibfk_1" Association="Self.cihaz_fifos_ibfk_1">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="cihaz_fifos" EntitySet="cihaz_fifos" />
+    </AssociationSet>
+    <AssociationSet Name="cihaz_garanti_kisit" Association="Self.cihaz_garanti_kisit">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="cihaz_garantis" EntitySet="cihaz_garantis" />
+    </AssociationSet>
+    <AssociationSet Name="cihaz_grup_f" Association="Self.cihaz_grup_f">
+      <End Role="cihaz_grups" EntitySet="cihaz_grups" />
+      <End Role="cihazs" EntitySet="cihazs" />
+    </AssociationSet>
+    <AssociationSet Name="cihaz_id" Association="Self.cihaz_id">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="satislars" EntitySet="satislars" />
+    </AssociationSet>
+    <AssociationSet Name="cihazIadeKisit" Association="Self.cihazIadeKisit">
+      <End Role="cihaz_garantis" EntitySet="cihaz_garantis" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="cihazs_ibfk_1" Association="Self.cihazs_ibfk_1">
+      <End Role="cihaz_birims" EntitySet="cihaz_birims" />
+      <End Role="cihazs" EntitySet="cihazs" />
+    </AssociationSet>
+    <AssociationSet Name="cihazs_ibfk_2" Association="Self.cihazs_ibfk_2">
+      <End Role="cihaz_birims" EntitySet="cihaz_birims" />
+      <End Role="cihazs" EntitySet="cihazs" />
+    </AssociationSet>
+    <AssociationSet Name="fatura_custome_kst" Association="Self.fatura_custome_kst">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="faturas" EntitySet="faturas" />
+    </AssociationSet>
+    <AssociationSet Name="faturas_ibfk_1" Association="Self.faturas_ibfk_1">
+      <End Role="satislars" EntitySet="satislars" />
+      <End Role="faturas" EntitySet="faturas" />
+    </AssociationSet>
+    <AssociationSet Name="garanti_custom_Kisit" Association="Self.garanti_custom_Kisit">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="cihaz_garantis" EntitySet="cihaz_garantis" />
+    </AssociationSet>
+    <AssociationSet Name="karar_fatura_kisit2" Association="Self.karar_fatura_kisit2">
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+      <End Role="faturas" EntitySet="faturas" />
+    </AssociationSet>
+    <AssociationSet Name="kart_hesaps_ibfk_1" Association="Self.kart_hesaps_ibfk_1">
+      <End Role="kart_tanims" EntitySet="kart_tanims" />
+      <End Role="kart_hesaps" EntitySet="kart_hesaps" />
+    </AssociationSet>
+    <AssociationSet Name="kart_hesaps_ibfk_2" Association="Self.kart_hesaps_ibfk_2">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="kart_hesaps" EntitySet="kart_hesaps" />
+    </AssociationSet>
+    <AssociationSet Name="kart_hesaps_ibfk_3" Association="Self.kart_hesaps_ibfk_3">
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+      <End Role="kart_hesaps" EntitySet="kart_hesaps" />
+    </AssociationSet>
+    <AssociationSet Name="kartTanimOdemeF1" Association="Self.kartTanimOdemeF1">
+      <End Role="kart_tanims" EntitySet="kart_tanims" />
+      <End Role="kart_odemes" EntitySet="kart_odemes" />
+    </AssociationSet>
+    <AssociationSet Name="kasaharekets_ibfk_1" Association="Self.kasaharekets_ibfk_1">
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+      <End Role="kasaharekets" EntitySet="kasaharekets" />
+    </AssociationSet>
+    <AssociationSet Name="kasaharekets_ibfk_2" Association="Self.kasaharekets_ibfk_2">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="kasaharekets" EntitySet="kasaharekets" />
+    </AssociationSet>
+    <AssociationSet Name="kiralama_tarifes_ibfk_1" Association="Self.kiralama_tarifes_ibfk_1">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="kiralama_tarifes" EntitySet="kiralama_tarifes" />
+    </AssociationSet>
+    <AssociationSet Name="makine_kullanicis_ibfk_1" Association="Self.makine_kullanicis_ibfk_1">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="makine_kullanicis" EntitySet="makine_kullanicis" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_hesaps2_ibfk_1" Association="Self.makine_masraf_hesaps2_ibfk_1">
+      <End Role="services" EntitySet="services" />
+      <End Role="makine_masraf_hesaps2" EntitySet="makine_masraf_hesaps2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_hesaps2_ibfk_2" Association="Self.makine_masraf_hesaps2_ibfk_2">
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+      <End Role="makine_masraf_hesaps2" EntitySet="makine_masraf_hesaps2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_hesaps2_ibfk_3" Association="Self.makine_masraf_hesaps2_ibfk_3">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="makine_masraf_hesaps2" EntitySet="makine_masraf_hesaps2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_hesaps2_ibfk_4" Association="Self.makine_masraf_hesaps2_ibfk_4">
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+      <End Role="makine_masraf_hesaps2" EntitySet="makine_masraf_hesaps2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_tanims2_ibfk_1" Association="Self.makine_masraf_tanims2_ibfk_1">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="makine_masraf_tanims2" EntitySet="makine_masraf_tanims2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_tanims2_ibfk_2" Association="Self.makine_masraf_tanims2_ibfk_2">
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+      <End Role="makine_masraf_tanims2" EntitySet="makine_masraf_tanims2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masraf_tanims2_ibfk_3" Association="Self.makine_masraf_tanims2_ibfk_3">
+      <End Role="kiralama_tarifes" EntitySet="kiralama_tarifes" />
+      <End Role="makine_masraf_tanims2" EntitySet="makine_masraf_tanims2" />
+    </AssociationSet>
+    <AssociationSet Name="makine_masrafs_ibfk_1" Association="Self.makine_masrafs_ibfk_1">
+      <End Role="cihaz_birims" EntitySet="cihaz_birims" />
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+    </AssociationSet>
+    <AssociationSet Name="makine_service_kisit" Association="Self.makine_service_kisit">
+      <End Role="services" EntitySet="services" />
+      <End Role="servicemakines" EntitySet="servicemakines" />
+    </AssociationSet>
+    <AssociationSet Name="makineservice_kisit" Association="Self.makineservice_kisit">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="servicemakines" EntitySet="servicemakines" />
+    </AssociationSet>
+    <AssociationSet Name="masraf_kisit_1" Association="Self.masraf_kisit_1">
+      <End Role="masraf_tips" EntitySet="masraf_tips" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="mmt_m_kisit11" Association="Self.mmt_m_kisit11">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="makine_servis_sayacs" EntitySet="makine_servis_sayacs" />
+    </AssociationSet>
+    <AssociationSet Name="mmt_m_kisit12" Association="Self.mmt_m_kisit12">
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+      <End Role="makine_servis_sayacs" EntitySet="makine_servis_sayacs" />
+    </AssociationSet>
+    <AssociationSet Name="mmt_m_kisit66" Association="Self.mmt_m_kisit66">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="makine_masraf_girislers" EntitySet="makine_masraf_girislers" />
+    </AssociationSet>
+    <AssociationSet Name="mmt_m_kisit669" Association="Self.mmt_m_kisit669">
+      <End Role="makine_masrafs" EntitySet="makine_masrafs" />
+      <End Role="makine_masraf_girislers" EntitySet="makine_masraf_girislers" />
+    </AssociationSet>
+    <AssociationSet Name="musteri_id" Association="Self.musteri_id">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="satislars" EntitySet="satislars" />
+    </AssociationSet>
+    <AssociationSet Name="musteriodemelers_ibfk_1" Association="Self.musteriodemelers_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="musteriodemelers_ibfk_2" Association="Self.musteriodemelers_ibfk_2">
+      <End Role="pos_tanims" EntitySet="pos_tanims" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="musteriodemelers_ibfk_3" Association="Self.musteriodemelers_ibfk_3">
+      <End Role="kart_tanims" EntitySet="kart_tanims" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="musteriodemelers_ibfk_4" Association="Self.musteriodemelers_ibfk_4">
+      <End Role="bankas" EntitySet="bankas" />
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+    </AssociationSet>
+    <AssociationSet Name="odeme_id" Association="Self.odeme_id">
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+      <End Role="satislars" EntitySet="satislars" />
+    </AssociationSet>
+    <AssociationSet Name="pos_tanims_ibfk_1" Association="Self.pos_tanims_ibfk_1">
+      <End Role="bankas" EntitySet="bankas" />
+      <End Role="pos_tanims" EntitySet="pos_tanims" />
+    </AssociationSet>
+    <AssociationSet Name="poshesaps_ibfk_2" Association="Self.poshesaps_ibfk_2">
+      <End Role="pos_tanims" EntitySet="pos_tanims" />
+      <End Role="poshesaps" EntitySet="poshesaps" />
+    </AssociationSet>
+    <AssociationSet Name="poshesaps_ibfk_3" Association="Self.poshesaps_ibfk_3">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="poshesaps" EntitySet="poshesaps" />
+    </AssociationSet>
+    <AssociationSet Name="poshesaps_ibfk_4" Association="Self.poshesaps_ibfk_4">
+      <End Role="musteriodemelers" EntitySet="musteriodemelers" />
+      <End Role="poshesaps" EntitySet="poshesaps" />
+    </AssociationSet>
+    <AssociationSet Name="service_faturas_ibfk_1" Association="Self.service_faturas_ibfk_1">
+      <End Role="services" EntitySet="services" />
+      <End Role="service_faturas" EntitySet="service_faturas" />
+    </AssociationSet>
+    <AssociationSet Name="service_faturas_ibfk_2" Association="Self.service_faturas_ibfk_2">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="service_faturas" EntitySet="service_faturas" />
+    </AssociationSet>
+    <AssociationSet Name="service_maliyets_ibfk_1" Association="Self.service_maliyets_ibfk_1">
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+      <End Role="service_maliyets" EntitySet="service_maliyets" />
+    </AssociationSet>
+    <AssociationSet Name="servicedetays_ibfk_1" Association="Self.servicedetays_ibfk_1">
+      <End Role="services" EntitySet="services" />
+      <End Role="servicedetays" EntitySet="servicedetays" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_1" Association="Self.servicehesaps_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_2" Association="Self.servicehesaps_ibfk_2">
+      <End Role="services" EntitySet="services" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_3" Association="Self.servicehesaps_ibfk_3">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_4" Association="Self.servicehesaps_ibfk_4">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_44" Association="Self.servicehesaps_ibfk_44">
+      <End Role="makine_caris" EntitySet="makine_caris" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="servicehesaps_ibfk_45" Association="Self.servicehesaps_ibfk_45">
+      <End Role="kiralama_tarifes" EntitySet="kiralama_tarifes" />
+      <End Role="servicehesaps" EntitySet="servicehesaps" />
+    </AssociationSet>
+    <AssociationSet Name="services_ibfk_1" Association="Self.services_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="services_ibfk_4" Association="Self.services_ibfk_4">
+      <End Role="service_tips" EntitySet="service_tips" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="services_ibfk_6" Association="Self.services_ibfk_6">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="services" EntitySet="services" />
+    </AssociationSet>
+    <AssociationSet Name="servis_kullanicis_ibfk_1" Association="Self.servis_kullanicis_ibfk_1">
+      <End Role="services" EntitySet="services" />
+      <End Role="servis_kullanicis" EntitySet="servis_kullanicis" />
+    </AssociationSet>
+    <AssociationSet Name="stokKisit1" Association="Self.stokKisit1">
+      <End Role="cihazs" EntitySet="cihazs" />
+      <End Role="cihaz_stoks" EntitySet="cihaz_stoks" />
+    </AssociationSet>
+    <AssociationSet Name="tamirci_kisit" Association="Self.tamirci_kisit">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="faturas" EntitySet="faturas" />
+    </AssociationSet>
+    <AssociationSet Name="yedek_uruns_ibfk_1" Association="Self.yedek_uruns_ibfk_1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="yedek_uruns" EntitySet="yedek_uruns" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
